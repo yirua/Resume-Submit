@@ -20,215 +20,123 @@ public class stepdefinition {
 
    @Given("^I have open the browser$")
    public void I_have_open_the_browser() throws Exception {
-	   System.setProperty("webdriver.gecko.driver", "res/geckodriver.exe");
+	   System.setProperty("webdriver.gecko.driver", "res/geckodriver");
 
 	   driver = new FirefoxDriver(); 
 	   
    }
 
-   @Given("^I open Arizona University website$")
-   public void I_open_Arizona_University_website() throws Exception {
-	  int x = 0;
-	  while (x<10){
-		  try{
-			  driver.navigate().to("https://webapp4.asu.edu/catalog "); 
-			  break;
-		  }
-		  catch (Exception e){
-			  System.out.println(e);
-			  x++;
-			  System.out.println("waiting for 2 secs and try to navigate asu.edu/catalog again..");
-			  Thread.sleep(2000);
-		  }
-		  
-	  }
-	  if (x==10){
-		  System.out.println("can not access https://webapp4.asu.edu/catalog..");
-	  }
-	   	   
-   }
-
-   @Given("^I choose ASU online courses radio button$")
-   public void I_choose_ASU_online_courses_radio_button()throws Exception {
-		driver.findElement(By.id("radio-online")).click();
+   @Given("^I open Indeed\\.ca$")
+   public void i_open_Indeed_ca() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
        
    }
 
-   @Given("^I choose Fall (\\d+)$")
-   public void I_choose_Fall(int arg1)throws Exception {
-	   driver.findElement(By.id("term")).sendKeys("2187"); 
+   @Given("^I input QA Engineer and Montreal, QC$")
+   public void i_input_QA_Engineer_and_Montreal_QC() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
        
    }
 
-   @Given("^I input Eng$")
-   public void I_input_Eng() throws Exception{
-	   driver.findElement(By.id("subjectEntry")).sendKeys("ENG");
+   @Given("^I click Find Jobs button$")
+   public void i_click_Find_Jobs_button() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
        
    }
 
-   @Given("^I input (\\d+)$")
-   public void I_input(int arg1)throws Exception {
-	   driver.findElement(By.id("catNbr")).sendKeys("101");
+   @Given("^I choose one of the Software QA Engineer link$")
+   public void i_choose_one_of_the_Software_QA_Engineer_link() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
        
    }
 
-   @When("^I Click Search button$")
-   public void I_Click_Search_button() throws Exception{
-	   
-	   	driver.findElement(By.id("go_and_search")).click();
-	   	Thread.sleep(10000);	       
-   }
-
-   @And("^I click the add button$")
-   public void I_click_the_add_button() throws Exception{
-	   Thread.sleep(2000);	
-	   String add_btn = "//*[@class=\"btn  btn-add-class\"]";
-       int x =0;
-       while (x<10){
-    	   try{
-    		   if ((driver.findElement(By.xpath(add_btn))).isDisplayed())
-    		   {
-    			   break;
-    		   }
-    		   
-    	   }
-    	   catch ( Exception e){
-    		   System.out.println(e);
-    	   }
-    	   finally{
-    		   x++;
-    		   System.out.println("sleeping for 2 secs and try to find the add button again..");
-    		   Thread.sleep(2000);
-    	   }
-       }	   
-
-       if (x==10){
-    	   System.out.print("The Add button is not Enabled after 20 secs loading, You can not add the course");
-       }
-       driver.findElement(By.xpath(add_btn)).click();
+   @Given("^I click Apply Now button$")
+   public void i_click_Apply_Now_button() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
        
    }
-   @Then("^The login page shows up$")
-   public void The_login_page_shows_up() throws Exception{
-	   int x=0;
-	   while (x<10){
-			try{
-				if (driver.findElement(By.id("login_submit")).isEnabled()){
-			    	   System.out.print("The login page shows up");
-			    	   break;
-			       } 
-			}
-			catch (Exception e){
-				System.out.println(e);
-			}
-			finally{
-				x++;
-				System.out.println("waiting for 2 secs to check the login_submit button showing up..");
-				Thread.sleep(2000);
-			}
-	   }
-	   
-	   if (x==10){
-		   System.out.println("The login page does not show up after 20 secs waiting..");
-	   }
-	   
-   }
 
-   @Given("^I choose ASU In-Person & iCourses radio button$")
-   public void I_choose_ASU_In_Person_iCourses_radio_button() {
-	   driver.findElement(By.id("radio-campus")).click();
-   }
-
-   @Given("^I input DSC$")
-   public void I_input_DSC() {
-       // Express the Regexp above with the code you wish you had
-	   driver.findElement(By.id("subjectEntry")).sendKeys("DSC");
-   }
-
-   @Given("^I choose session C$")
-   public void I_choose_session_C() {
-       // Express the Regexp above with the code you wish you had
-	   driver.findElement(By.id("session-button")).click();
-	   driver.findElement(By.id("sessionC")).click();
-   }
-
-   @When("^I click Search button$")
-   public void I_click_Search_button()throws Exception {
-		driver.findElement(By.id("go_and_search")).click();
-	   	Thread.sleep(5000);	        
-   }
-
-   @Then("^I check seats opening$")
-   public void I_check_seats_opening()throws Exception {
-	   String seats_open="";
-	   int x=0;
-	   while(x<20){
-		   try{
-			  // seats_open = driver.findElement(By.xpath("//*[@id=\"informal\"]/td[11]/div")).getText();  
-			   seats_open = driver.findElement(By.xpath("//*[@id=\"informal\"]/td[11]/div")).getText();  
- 
-			   //availableSeatsColumnValue
-			   if (!seats_open.equalsIgnoreCase("")){
-				   break;
-			   }	
-		   }
-		   catch(Exception e){
-			   System.out.println(e);
-		   }
-		   x++;
-		   System.out.println("sleeping two secs to try again checking seats_open");
-		   Thread.sleep(2000);
-	   }
-	   if (x==20){
-		   System.err.println("seats_open can not be found after 40 secs..");
-	   }
-	   else{
-		   System.out.println("There are " + seats_open +" seats open for session C");
-	   }
-   }
-   @Given("^I input Squire$")
-   public void I_input_Squire()throws Exception {
-       // Express the Regexp above with the code you wish you had //keyword 
-	   driver.findElement(By.id("keyword")).sendKeys("Squire");
-   }
-
-   @When("^I check instructorListColumnValue for Squire$")
-   public void I_check_instructorListColumnValue_for_Squire()throws Exception {
-       // Express the Regexp above with the code you wish you had
-       List<WebElement>  instructorList = new ArrayList<WebElement>();
-       instructorList = driver.findElements(By.className("instructorListColumnValue"));
+   @Given("^I input My name$")
+   public void i_input_My_name() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
        
-       int ctr = 0;
-       for (int i=0;i<instructorList.size();i++) {
-    	   
-    	   //str1.toLowerCase().contains(str2.toLowerCase())
-    	   if (instructorList.get(i).getText().toLowerCase().contains("squire")){
-    		   ctr++;
-    	   } 
-       }
-       System.out.println("There are "+ ctr + " courses by Prof.Squire");
    }
 
-
-@Then("^I check availableSeatsColumnValue for seats opening$")
-   public void I_check_availableSeatsColumnValue_for_seats_opening()throws Exception {
-       // Express the Regexp above with the code you wish you had
-	   List <WebElement> avlSeats = new ArrayList <WebElement>();
-	   avlSeats = driver.findElements(By.className("availableSeatsColumnValue"));
-	   List<WebElement>  instructorList = new ArrayList<WebElement>();
-       instructorList = driver.findElements(By.className("instructorListColumnValue"));
+   @Given("^I input My phone$")
+   public void i_input_My_phone() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
        
-	   int ctr = 0;
-       for (int i=0;i<avlSeats.size();i++) {  
-    	   
-    	   if (avlSeats.get(i).getText().toLowerCase().equals("0")){
-    		   continue;
-    	   } 
-    	   else if((instructorList.get(i).getText().toLowerCase().contains("squire"))){
-    		   ctr++;
-    	   }
-       }
-       System.out.println("There are "+ ctr + " courses by Prof.Squire that have open seats");
+   }
+
+   @Given("^I input My Email$")
+   public void i_input_My_Email() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
+       
+   }
+
+   @When("^I Click Browse button$")
+   public void i_Click_Browse_button() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
+      
+   }
+
+   @When("^I input the QA_Engr resume file name$")
+   public void i_input_the_QA_Engr_resume_file_name() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
+      
+   }
+
+   @When("^I click open button$")
+   public void i_click_open_button() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
+       
+   }
+
+   @Then("^The Continue button shows up$")
+   public void the_Continue_button_shows_up() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
+       
+   }
+
+   @Then("^I click the Apply button$")
+   public void i_click_the_Apply_button() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
+       
+   }
+
+   @Given("^I open Indeed\\.com$")
+   public void i_open_Indeed_com() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
+      
+   }
+
+   @Given("^I input QA Engineer and Us$")
+   public void i_input_QA_Engineer_and_Us() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
+      
+   }
+
+   @Given("^I input Data Analyst and Montreal$")
+   public void i_input_Data_Analyst_and_Montreal() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
+       
+   }
+
+   @Given("^I click one of the data analyst job's link$")
+   public void i_click_one_of_the_data_analyst_job_s_link() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
+       
+   }
+
+   @When("^I input the Data Analyst resume file name$")
+   public void i_input_the_Data_Analyst_resume_file_name() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
+       
+   }
+
+   @Given("^I input Data Analyst and US$")
+   public void i_input_Data_Analyst_and_US() throws Throwable {
+       // Write code here that turns the phrase above into concrete actions
        
    }
    @Then("^I close the browser$")
