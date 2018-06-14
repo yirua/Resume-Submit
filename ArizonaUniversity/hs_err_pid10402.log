@@ -1,0 +1,723 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 31981568 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2627), pid=10402, tid=0x63c8cb40
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_111-b14) (build 1.8.0_111-b14)
+# Java VM: Java HotSpot(TM) Server VM (25.111-b14 mixed mode linux-x86 )
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x63b81000):  VMThread [stack: 0x63c0c000,0x63c8d000] [id=10414]
+
+Stack: [0x63c0c000,0x63c8d000],  sp=0x63c8b720,  free space=509k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x8d5b9f]  VMError::report_and_die()+0x16f
+V  [libjvm.so+0x38e6d5]  report_vm_out_of_memory(char const*, int, unsigned int, VMErrorType, char const*)+0x55
+V  [libjvm.so+0x756a26]  os::Linux::commit_memory_impl(char*, unsigned int, bool)+0xe6
+V  [libjvm.so+0x756ef8]  os::pd_commit_memory(char*, unsigned int, unsigned int, bool)+0x28
+V  [libjvm.so+0x750e1c]  os::commit_memory(char*, unsigned int, unsigned int, bool)+0x2c
+V  [libjvm.so+0x7bc308]  PSVirtualSpace::expand_by(unsigned int)+0x48
+V  [libjvm.so+0x7bd40a]  PSYoungGen::resize_generation(unsigned int, unsigned int)+0xda
+V  [libjvm.so+0x7bc739]  PSYoungGen::resize(unsigned int, unsigned int)+0x19
+V  [libjvm.so+0x7ba065]  PSScavenge::invoke_no_policy()+0xd15
+V  [libjvm.so+0x7ba828]  PSScavenge::invoke()+0x28
+V  [libjvm.so+0x77849a]  ParallelScavengeHeap::failed_mem_allocate(unsigned int)+0x5a
+V  [libjvm.so+0x8d766a]  VM_ParallelGCFailedAllocation::doit()+0x7a
+V  [libjvm.so+0x8e0d27]  VM_Operation::evaluate()+0x47
+V  [libjvm.so+0x8dee03]  VMThread::evaluate_operation(VM_Operation*)+0xb3
+V  [libjvm.so+0x8df1a0]  VMThread::loop()+0x1b0
+V  [libjvm.so+0x8df605]  VMThread::run()+0x85
+V  [libjvm.so+0x759079]  java_start(Thread*)+0x119
+C  [libpthread.so.0+0x6f72]  start_thread+0xd2
+
+VM_Operation (0xb672ce14): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0xb6509400
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x62501000 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=10606, stack(0x61caf000,0x61d00000)]
+  0x62500400 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=10605, stack(0x61e1d000,0x61e6e000)]
+  0x63943400 JavaThread "process reaper" daemon [_thread_in_native, id=10604, stack(0x61e6e000,0x61e87000)]
+  0x6286f800 JavaThread "Exec Default Executor" daemon [_thread_blocked, id=10602, stack(0x61e87000,0x61ed8000)]
+  0x66a7ec00 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=10574, stack(0x61ed8000,0x61f29000)]
+  0x62e2f800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=10573, stack(0x61f29000,0x61f7a000)]
+  0x62e2dc00 JavaThread "process reaper" daemon [_thread_in_native, id=10572, stack(0x61f7a000,0x61f93000)]
+  0x6286f000 JavaThread "Exec Default Executor" daemon [_thread_blocked, id=10570, stack(0x6225e000,0x622af000)]
+  0x62154000 JavaThread "Okio Watchdog" daemon [_thread_blocked, id=10440, stack(0x620af000,0x62100000)]
+  0x62152000 JavaThread "OkHttp ConnectionPool" daemon [_thread_blocked, id=10439, stack(0x6220d000,0x6225e000)]
+  0x08d16c00 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=10430, stack(0x624af000,0x62500000)]
+  0x08d15800 JavaThread "Exec Stream Pumper" daemon [_thread_in_native, id=10429, stack(0x62b06000,0x62b57000)]
+  0x08d14400 JavaThread "process reaper" daemon [_thread_in_native, id=10428, stack(0x6300a000,0x63023000)]
+  0x6289cc00 JavaThread "Exec Default Executor" daemon [_thread_blocked, id=10426, stack(0x62b57000,0x62ba8000)]
+  0x62ff6c00 JavaThread "ReaderThread" [_thread_in_native, id=10424, stack(0x6304a000,0x6309b000)]
+  0x63baac00 JavaThread "Service Thread" daemon [_thread_blocked, id=10422, stack(0x632fa000,0x6334b000)]
+  0x63ba7800 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=10421, stack(0x6334b000,0x633cc000)]
+  0x63ba6400 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=10420, stack(0x633cc000,0x6344d000)]
+  0x63ba4400 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=10419, stack(0x6344d000,0x634ce000)]
+  0x63ba2c00 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=10418, stack(0x63a0d000,0x63a5e000)]
+  0x63b88400 JavaThread "Finalizer" daemon [_thread_blocked, id=10416, stack(0x63a5e000,0x63aaf000)]
+  0x63b85800 JavaThread "Reference Handler" daemon [_thread_blocked, id=10415, stack(0x63aaf000,0x63b00000)]
+  0xb6509400 JavaThread "Forwarding newSession on session null to remote" [_thread_blocked, id=10409, stack(0xb66de000,0xb672f000)]
+
+Other Threads:
+=>0x63b81000 VMThread [stack: 0x63c0c000,0x63c8d000] [id=10414]
+  0x63bd6000 WatcherThread [stack: 0x63279000,0x632fa000] [id=10423]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0xb6506a60] Threads_lock - owner thread: 0x63b81000
+[0xb6506e70] Heap_lock - owner thread: 0xb6509400
+
+Heap:
+ PSYoungGen      total 57600K, used 4064K [0x91ac0000, 0x958c0000, 0xa7000000)
+  eden space 51712K, 0% used [0x91ac0000,0x91ac0000,0x94d40000)
+  from space 5888K, 69% used [0x94d40000,0x95138000,0x95300000)
+  to   space 5888K, 0% used [0x95300000,0x95300000,0x958c0000)
+ ParOldGen       total 43776K, used 9666K [0x67000000, 0x69ac0000, 0x91ac0000)
+  object space 43776K, 22% used [0x67000000,0x67970878,0x69ac0000)
+ Metaspace       used 10307K, capacity 10886K, committed 10904K, reserved 11568K
+
+Card table byte_map: [0x66dff000,0x67000000] byte_map_base: 0x66ac7000
+
+Marking Bits: (ParMarkBitMap*) 0xb71808c0
+ Begin Bits: [0x64700000, 0x65700000)
+ End Bits:   [0x65700000, 0x66700000)
+
+Polling page: 0xb778a000
+
+CodeCache: size=245760Kb used=4011Kb max_used=4328Kb free=241748Kb
+ bounds [0xa7500000, 0xa7958000, 0xb6500000]
+ total_blobs=1638 nmethods=1458 adapters=94
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 265.424 Thread 0x63ba6400 nmethod 1663 0xa75e28c8 code [0xa75e2a20, 0xa75e2ed0]
+Event: 265.424 Thread 0x63ba6400 1665   !   4       java.lang.ref.Finalizer::remove (94 bytes)
+Event: 265.429 Thread 0x63ba6400 nmethod 1665 0xa75d43c8 code [0xa75d44e0, 0xa75d4730]
+Event: 265.431 Thread 0x63ba4400 nmethod 1664 0xa75ae948 code [0xa75aeaa0, 0xa75aef50]
+Event: 265.920 Thread 0x63ba6400 1666       4       java.net.AbstractPlainSocketImpl::finalize (5 bytes)
+Event: 265.926 Thread 0x63ba6400 nmethod 1666 0xa75e3bc8 code [0xa75e3d20, 0xa75e40d0]
+Event: 269.216 Thread 0x63ba7800 1667 % !   3       org.openqa.selenium.net.PortProber::waitForPortUp @ 11 (75 bytes)
+Event: 270.036 Thread 0x63ba7800 nmethod 1667% 0xa76569c8 code [0xa7656ba0, 0xa76571a8]
+Event: 270.049 Thread 0x63ba7800 1668   !   3       org.openqa.selenium.net.PortProber::waitForPortUp (75 bytes)
+Event: 270.050 Thread 0x63ba7800 nmethod 1668 0xa75ac908 code [0xa75acac0, 0xa75ad088]
+
+GC Heap History (10 events):
+Event: 265.356 GC heap after
+Heap after GC invocations=6 (full 0):
+ PSYoungGen      total 21504K, used 3760K [0x91ac0000, 0x93600000, 0xa7000000)
+  eden space 16128K, 0% used [0x91ac0000,0x91ac0000,0x92a80000)
+  from space 5376K, 69% used [0x930c0000,0x9346c100,0x93600000)
+  to   space 5888K, 0% used [0x92a80000,0x92a80000,0x93040000)
+ ParOldGen       total 43776K, used 7131K [0x67000000, 0x69ac0000, 0x91ac0000)
+  object space 43776K, 16% used [0x67000000,0x676f6de8,0x69ac0000)
+ Metaspace       used 10307K, capacity 10886K, committed 10904K, reserved 11568K
+}
+Event: 265.890 GC heap before
+{Heap before GC invocations=7 (full 0):
+ PSYoungGen      total 21504K, used 19888K [0x91ac0000, 0x93600000, 0xa7000000)
+  eden space 16128K, 100% used [0x91ac0000,0x92a80000,0x92a80000)
+  from space 5376K, 69% used [0x930c0000,0x9346c100,0x93600000)
+  to   space 5888K, 0% used [0x92a80000,0x92a80000,0x93040000)
+ ParOldGen       total 43776K, used 7131K [0x67000000, 0x69ac0000, 0x91ac0000)
+  object space 43776K, 16% used [0x67000000,0x676f6de8,0x69ac0000)
+ Metaspace       used 10307K, capacity 10886K, committed 10904K, reserved 11568K
+Event: 265.918 GC heap after
+Heap after GC invocations=7 (full 0):
+ PSYoungGen      total 22016K, used 2616K [0x91ac0000, 0x945c0000, 0xa7000000)
+  eden space 16128K, 0% used [0x91ac0000,0x91ac0000,0x92a80000)
+  from space 5888K, 44% used [0x92a80000,0x92d0e0a0,0x93040000)
+  to   space 5888K, 0% used [0x94000000,0x94000000,0x945c0000)
+ ParOldGen       total 43776K, used 8313K [0x67000000, 0x69ac0000, 0x91ac0000)
+  object space 43776K, 18% used [0x67000000,0x6781e788,0x69ac0000)
+ Metaspace       used 10307K, capacity 10886K, committed 10904K, reserved 11568K
+}
+Event: 266.441 GC heap before
+{Heap before GC invocations=8 (full 0):
+ PSYoungGen      total 22016K, used 18744K [0x91ac0000, 0x945c0000, 0xa7000000)
+  eden space 16128K, 100% used [0x91ac0000,0x92a80000,0x92a80000)
+  from space 5888K, 44% used [0x92a80000,0x92d0e0a0,0x93040000)
+  to   space 5888K, 0% used [0x94000000,0x94000000,0x945c0000)
+ ParOldGen       total 43776K, used 8313K [0x67000000, 0x69ac0000, 0x91ac0000)
+  object space 43776K, 18% used [0x67000000,0x6781e788,0x69ac0000)
+ Metaspace       used 10307K, capacity 10886K, committed 10904K, reserved 11568K
+Event: 266.456 GC heap after
+Heap after GC invocations=8 (full 0):
+ PSYoungGen      total 38144K, used 1392K [0x91ac0000, 0x945c0000, 0xa7000000)
+  eden space 32256K, 0% used [0x91ac0000,0x91ac0000,0x93a40000)
+  from space 5888K, 23% used [0x94000000,0x9415c030,0x945c0000)
+  to   space 5888K, 0% used [0x93a40000,0x93a40000,0x94000000)
+ ParOldGen       total 43776K, used 9562K [0x67000000, 0x69ac0000, 0x91ac0000)
+  object space 43776K, 21% used [0x67000000,0x67956838,0x69ac0000)
+ Metaspace       used 10307K, capacity 10886K, committed 10904K, reserved 11568K
+}
+Event: 267.526 GC heap before
+{Heap before GC invocations=9 (full 0):
+ PSYoungGen      total 38144K, used 33648K [0x91ac0000, 0x945c0000, 0xa7000000)
+  eden space 32256K, 100% used [0x91ac0000,0x93a40000,0x93a40000)
+  from space 5888K, 23% used [0x94000000,0x9415c030,0x945c0000)
+  to   space 5888K, 0% used [0x93a40000,0x93a40000,0x94000000)
+ ParOldGen       total 43776K, used 9562K [0x67000000, 0x69ac0000, 0x91ac0000)
+  object space 43776K, 21% used [0x67000000,0x67956838,0x69ac0000)
+ Metaspace       used 10307K, capacity 10886K, committed 10904K, reserved 11568K
+Event: 267.552 GC heap after
+Heap after GC invocations=9 (full 0):
+ PSYoungGen      total 38144K, used 2560K [0x91ac0000, 0x958c0000, 0xa7000000)
+  eden space 32256K, 0% used [0x91ac0000,0x91ac0000,0x93a40000)
+  from space 5888K, 43% used [0x93a40000,0x93cc0000,0x94000000)
+  to   space 5888K, 0% used [0x95300000,0x95300000,0x958c0000)
+ ParOldGen       total 43776K, used 9658K [0x67000000, 0x69ac0000, 0x91ac0000)
+  object space 43776K, 22% used [0x67000000,0x6796e878,0x69ac0000)
+ Metaspace       used 10307K, capacity 10886K, committed 10904K, reserved 11568K
+}
+Event: 268.610 GC heap before
+{Heap before GC invocations=10 (full 0):
+ PSYoungGen      total 38144K, used 34816K [0x91ac0000, 0x958c0000, 0xa7000000)
+  eden space 32256K, 100% used [0x91ac0000,0x93a40000,0x93a40000)
+  from space 5888K, 43% used [0x93a40000,0x93cc0000,0x94000000)
+  to   space 5888K, 0% used [0x95300000,0x95300000,0x958c0000)
+ ParOldGen       total 43776K, used 9658K [0x67000000, 0x69ac0000, 0x91ac0000)
+  object space 43776K, 22% used [0x67000000,0x6796e878,0x69ac0000)
+ Metaspace       used 10307K, capacity 10886K, committed 10904K, reserved 11568K
+Event: 268.638 GC heap after
+Heap after GC invocations=10 (full 0):
+ PSYoungGen      total 57600K, used 2560K [0x91ac0000, 0x958c0000, 0xa7000000)
+  eden space 51712K, 0% used [0x91ac0000,0x91ac0000,0x94d40000)
+  from space 5888K, 43% used [0x95300000,0x95580000,0x958c0000)
+  to   space 5888K, 0% used [0x94d40000,0x94d40000,0x95300000)
+ ParOldGen       total 43776K, used 9658K [0x67000000, 0x69ac0000, 0x91ac0000)
+  object space 43776K, 22% used [0x67000000,0x6796e878,0x69ac0000)
+ Metaspace       used 10307K, capacity 10886K, committed 10904K, reserved 11568K
+}
+Event: 270.376 GC heap before
+{Heap before GC invocations=11 (full 0):
+ PSYoungGen      total 57600K, used 54272K [0x91ac0000, 0x958c0000, 0xa7000000)
+  eden space 51712K, 100% used [0x91ac0000,0x94d40000,0x94d40000)
+  from space 5888K, 43% used [0x95300000,0x95580000,0x958c0000)
+  to   space 5888K, 0% used [0x94d40000,0x94d40000,0x95300000)
+ ParOldGen       total 43776K, used 9658K [0x67000000, 0x69ac0000, 0x91ac0000)
+  object space 43776K, 22% used [0x67000000,0x6796e878,0x69ac0000)
+ Metaspace       used 10307K, capacity 10886K, committed 10904K, reserved 11568K
+
+Deoptimization events (10 events):
+Event: 8.376 Thread 0xb6509400 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa77cafa4 method=java.lang.String.toLowerCase(Ljava/util/Locale;)Ljava/lang/String; @ 226
+Event: 8.561 Thread 0xb6509400 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa77bcb74 method=java.io.ByteArrayInputStream.read([BII)I @ 63
+Event: 8.616 Thread 0xb6509400 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa776e4a0 method=java.lang.CharacterDataLatin1.digit(II)I @ 82
+Event: 9.053 Thread 0xb6509400 Uncommon trap: reason=range_check action=make_not_entrant pc=0xa7830ec4 method=sun.reflect.generics.parser.SignatureParser.current()C @ 34
+Event: 9.781 Thread 0xb6509400 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa77c87b4 method=java.io.DataInputStream.readChar()C @ 4
+Event: 9.781 Thread 0xb6509400 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa77c87b4 method=java.io.DataInputStream.readChar()C @ 4
+Event: 9.781 Thread 0xb6509400 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa77c87b4 method=java.io.DataInputStream.readChar()C @ 4
+Event: 9.781 Thread 0xb6509400 Uncommon trap: reason=class_check action=maybe_recompile pc=0xa77c87b4 method=java.io.DataInputStream.readChar()C @ 4
+Event: 9.830 Thread 0xb6509400 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa77f21c4 method=java.lang.String.regionMatches(ZILjava/lang/String;II)Z @ 123
+Event: 79.620 Thread 0xb6509400 Uncommon trap: reason=unstable_if action=reinterpret pc=0xa78b7158 method=java.util.concurrent.ConcurrentHashMap.putVal(Ljava/lang/Object;Ljava/lang/Object;Z)Ljava/lang/Object; @ 181
+
+Internal exceptions (10 events):
+Event: 270.375 Thread 0xb6509400 Exception <a 'java/net/ConnectException'> (0x94d3a130) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u111/7883/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 270.375 Thread 0xb6509400 Exception <a 'java/net/ConnectException'> (0x94d3aad8) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u111/7883/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 270.375 Thread 0xb6509400 Exception <a 'java/net/ConnectException'> (0x94d3b480) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u111/7883/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 270.375 Thread 0xb6509400 Exception <a 'java/net/ConnectException'> (0x94d3be28) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u111/7883/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 270.375 Thread 0xb6509400 Exception <a 'java/net/ConnectException'> (0x94d3c7d0) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u111/7883/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 270.375 Thread 0xb6509400 Exception <a 'java/net/ConnectException'> (0x94d3d178) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u111/7883/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 270.376 Thread 0xb6509400 Exception <a 'java/net/ConnectException'> (0x94d3db20) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u111/7883/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 270.376 Thread 0xb6509400 Exception <a 'java/net/ConnectException'> (0x94d3e4c8) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u111/7883/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 270.376 Thread 0xb6509400 Exception <a 'java/net/ConnectException'> (0x94d3ee70) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u111/7883/hotspot/src/share/vm/prims/jni.cpp, line 709]
+Event: 270.376 Thread 0xb6509400 Exception <a 'java/net/ConnectException'> (0x94d3f818) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u111/7883/hotspot/src/share/vm/prims/jni.cpp, line 709]
+
+Events (10 events):
+Event: 268.638 Executing VM operation: ParallelGCFailedAllocation done
+Event: 270.036 Thread 0x63ba7800 flushing nmethod 0xa77bc748
+Event: 270.037 Thread 0x63ba7800 flushing nmethod 0xa77c3d08
+Event: 270.037 Thread 0x63ba7800 flushing nmethod 0xa77c64c8
+Event: 270.037 Thread 0x63ba7800 flushing nmethod 0xa77c8fc8
+Event: 270.037 Thread 0x63ba7800 flushing nmethod 0xa77ca8c8
+Event: 270.050 Thread 0x63ba7800 flushing nmethod 0xa77d39c8
+Event: 270.051 Thread 0x63ba7800 flushing nmethod 0xa77ffc88
+Event: 270.051 Thread 0x63ba7800 flushing nmethod 0xa78008c8
+Event: 270.376 Executing VM operation: ParallelGCFailedAllocation
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:08 7869332    /usr/lib/jvm/java-8-oracle/bin/java
+08049000-0804a000 rw-p 00000000 08:08 7869332    /usr/lib/jvm/java-8-oracle/bin/java
+08d0f000-08d30000 rw-p 00000000 00:00 0          [heap]
+61700000-617e7000 rw-p 00000000 00:00 0 
+617e7000-61800000 ---p 00000000 00:00 0 
+61900000-619f6000 rw-p 00000000 00:00 0 
+619f6000-61a00000 ---p 00000000 00:00 0 
+61a00000-61ae5000 rw-p 00000000 00:00 0 
+61ae5000-61b00000 ---p 00000000 00:00 0 
+61b00000-61bef000 rw-p 00000000 00:00 0 
+61bef000-61c00000 ---p 00000000 00:00 0 
+61caf000-61cb2000 ---p 00000000 00:00 0 
+61cb2000-61d00000 rw-p 00000000 00:00 0 
+61d00000-61df7000 rw-p 00000000 00:00 0 
+61df7000-61e00000 ---p 00000000 00:00 0 
+61e1d000-61e20000 ---p 00000000 00:00 0 
+61e20000-61e6e000 rw-p 00000000 00:00 0 
+61e6e000-61e71000 ---p 00000000 00:00 0 
+61e71000-61e87000 rw-p 00000000 00:00 0 
+61e87000-61e8a000 ---p 00000000 00:00 0 
+61e8a000-61ed8000 rw-p 00000000 00:00 0 
+61ed8000-61edb000 ---p 00000000 00:00 0 
+61edb000-61f29000 rw-p 00000000 00:00 0 
+61f29000-61f2c000 ---p 00000000 00:00 0 
+61f2c000-61f7a000 rw-p 00000000 00:00 0 
+61f7a000-61f7d000 ---p 00000000 00:00 0 
+61f7d000-61f93000 rw-p 00000000 00:00 0 
+61f93000-61faf000 r--s 00393000 08:08 11011624   /usr/lib/jvm/java-8-oracle/jre/lib/ext/cldrdata.jar
+61faf000-6200f000 rw-p 00000000 00:00 0 
+6200f000-620af000 ---p 00000000 00:00 0 
+620af000-620b2000 ---p 00000000 00:00 0 
+620b2000-62100000 rw-p 00000000 00:00 0 
+62100000-62176000 rw-p 00000000 00:00 0 
+62176000-62200000 ---p 00000000 00:00 0 
+6220d000-62210000 ---p 00000000 00:00 0 
+62210000-6225e000 rw-p 00000000 00:00 0 
+6225e000-62261000 ---p 00000000 00:00 0 
+62261000-623af000 rw-p 00000000 00:00 0 
+623af000-624af000 rw-p 00000000 00:00 0 
+624af000-624b2000 ---p 00000000 00:00 0 
+624b2000-62500000 rw-p 00000000 00:00 0 
+62500000-625f5000 rw-p 00000000 00:00 0 
+625f5000-62600000 ---p 00000000 00:00 0 
+62600000-62700000 rw-p 00000000 00:00 0 
+62700000-62800000 rw-p 00000000 00:00 0 
+62800000-62900000 rw-p 00000000 00:00 0 
+62900000-62a00000 rw-p 00000000 00:00 0 
+62a00000-62afb000 rw-p 00000000 00:00 0 
+62afb000-62b00000 ---p 00000000 00:00 0 
+62b06000-62b09000 ---p 00000000 00:00 0 
+62b09000-62b57000 rw-p 00000000 00:00 0 
+62b57000-62b5a000 ---p 00000000 00:00 0 
+62b5a000-62ba8000 rw-p 00000000 00:00 0 
+62ba8000-62bc4000 r-xp 00000000 08:08 11272221   /lib/i386-linux-gnu/libgcc_s.so.1
+62bc4000-62bc5000 rw-p 0001b000 08:08 11272221   /lib/i386-linux-gnu/libgcc_s.so.1
+62bc5000-62bf8000 r-xp 00000000 08:08 11011527   /usr/lib/jvm/java-8-oracle/jre/lib/i386/libsunec.so
+62bf8000-62bfc000 rw-p 00032000 08:08 11011527   /usr/lib/jvm/java-8-oracle/jre/lib/i386/libsunec.so
+62bfc000-62d00000 rw-p 00000000 00:00 0 
+62d00000-62dfe000 rw-p 00000000 00:00 0 
+62dfe000-62e00000 ---p 00000000 00:00 0 
+62e00000-62efe000 rw-p 00000000 00:00 0 
+62efe000-62f00000 ---p 00000000 00:00 0 
+62f00000-62ffa000 rw-p 00000000 00:00 0 
+62ffa000-63000000 ---p 00000000 00:00 0 
+63000000-6300a000 r--s 00116000 08:08 11011617   /usr/lib/jvm/java-8-oracle/jre/lib/ext/localedata.jar
+6300a000-6300d000 ---p 00000000 00:00 0 
+6300d000-63023000 rw-p 00000000 00:00 0 
+63023000-63036000 r--s 00345000 08:08 8130160    /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar
+63036000-6303a000 r--s 0003a000 08:08 11011618   /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunpkcs11.jar
+6303a000-63049000 r-xp 00000000 08:08 11011561   /usr/lib/jvm/java-8-oracle/jre/lib/i386/libnio.so
+63049000-6304a000 rw-p 0000e000 08:08 11011561   /usr/lib/jvm/java-8-oracle/jre/lib/i386/libnio.so
+6304a000-6304d000 ---p 00000000 00:00 0 
+6304d000-6309b000 rw-p 00000000 00:00 0 
+6309b000-630b0000 r-xp 00000000 08:08 11011557   /usr/lib/jvm/java-8-oracle/jre/lib/i386/libnet.so
+630b0000-630b1000 rw-p 00015000 08:08 11011557   /usr/lib/jvm/java-8-oracle/jre/lib/i386/libnet.so
+630b1000-630c0000 r--s 00092000 08:08 15866005   /home/yiwei/.m2/repository/info/cukes/cucumber-core/1.0.2/cucumber-core-1.0.2.jar
+630c0000-63100000 r--s 002a4000 08:08 13111812   /home/yiwei/.m2/repository/net/bytebuddy/byte-buddy/1.8.3/byte-buddy-1.8.3.jar
+63100000-63200000 rw-p 00000000 00:00 0 
+63200000-63203000 r--s 0001a000 08:08 8130159    /usr/lib/jvm/java-8-oracle/jre/lib/jce.jar
+63203000-63207000 r--s 00097000 08:08 8130192    /usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar
+63207000-63239000 r--s 00264000 08:08 15207677   /home/yiwei/.m2/repository/com/google/guava/guava/23.6-jre/guava-23.6-jre.jar
+63239000-63279000 r--s 002a4000 08:08 15859837   /home/yiwei/Downloads/Tools/libs/byte-buddy-1.8.3.jar
+63279000-6327a000 ---p 00000000 00:00 0 
+6327a000-632fa000 rw-p 00000000 00:00 0 
+632fa000-632fd000 ---p 00000000 00:00 0 
+632fd000-6334b000 rw-p 00000000 00:00 0 
+6334b000-6334e000 ---p 00000000 00:00 0 
+6334e000-633cc000 rw-p 00000000 00:00 0 
+633cc000-633cf000 ---p 00000000 00:00 0 
+633cf000-6344d000 rw-p 00000000 00:00 0 
+6344d000-63450000 ---p 00000000 00:00 0 
+63450000-634ce000 rw-p 00000000 00:00 0 
+634ce000-63600000 r--p 0071a000 08:08 7479462    /usr/lib/locale/locale-archive
+63600000-63800000 r--p 00000000 08:08 7479462    /usr/lib/locale/locale-archive
+63800000-63821000 rw-p 00000000 00:00 0 
+63821000-63900000 ---p 00000000 00:00 0 
+63900000-639fa000 rw-p 00000000 00:00 0 
+639fa000-63a00000 ---p 00000000 00:00 0 
+63a00000-63a02000 r--s 00009000 08:08 11011621   /usr/lib/jvm/java-8-oracle/jre/lib/ext/sunec.jar
+63a02000-63a04000 r--s 00003000 08:08 15866011   /home/yiwei/.m2/repository/info/cukes/cucumber-junit/1.0.2/cucumber-junit-1.0.2.jar
+63a04000-63a0d000 r--s 0013d000 08:08 15866007   /home/yiwei/.m2/repository/info/cukes/gherkin/2.9.3/gherkin-2.9.3.jar
+63a0d000-63a10000 ---p 00000000 00:00 0 
+63a10000-63a5e000 rw-p 00000000 00:00 0 
+63a5e000-63a61000 ---p 00000000 00:00 0 
+63a61000-63aaf000 rw-p 00000000 00:00 0 
+63aaf000-63ab2000 ---p 00000000 00:00 0 
+63ab2000-63b00000 rw-p 00000000 00:00 0 
+63b00000-63bff000 rw-p 00000000 00:00 0 
+63bff000-63c00000 ---p 00000000 00:00 0 
+63c01000-63c03000 r--s 00008000 08:08 15866009   /home/yiwei/.m2/repository/info/cukes/cucumber-html/0.2.1/cucumber-html-0.2.1.jar
+63c03000-63c0c000 r--s 0001e000 08:08 15866003   /home/yiwei/.m2/repository/info/cukes/cucumber-java/1.0.2/cucumber-java-1.0.2.jar
+63c0c000-63c0d000 ---p 00000000 00:00 0 
+63c0d000-63cdc000 rw-p 00000000 00:00 0 
+63cdc000-63eb4000 r--s 03d2a000 08:08 8130189    /usr/lib/jvm/java-8-oracle/jre/lib/rt.jar
+63eb4000-642fa000 rw-p 00000000 00:00 0 
+642fa000-64300000 ---p 00000000 00:00 0 
+64300000-66700000 rw-p 00000000 00:00 0 
+66700000-667f7000 rw-p 00000000 00:00 0 
+667f7000-66800000 ---p 00000000 00:00 0 
+66801000-66802000 r--s 00013000 08:08 15866001   /home/yiwei/.m2/repository/com/squareup/okio/okio/1.13.0/okio-1.13.0.jar
+66802000-66808000 r--s 0005e000 08:08 15865999   /home/yiwei/.m2/repository/com/squareup/okhttp3/okhttp/3.9.1/okhttp-3.9.1.jar
+66808000-66810000 r--s 00048000 08:08 15865997   /home/yiwei/.m2/repository/org/apache/httpcomponents/httpcore/4.4.6/httpcore-4.4.6.jar
+66810000-6681d000 r--s 000aa000 08:08 15865995   /home/yiwei/.m2/repository/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar
+6681d000-6681e000 r--s 00000000 08:08 15865993   /home/yiwei/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar
+6681e000-66820000 r--s 00001000 08:08 15865991   /home/yiwei/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar
+66820000-66822000 r--s 00002000 08:08 15865989   /home/yiwei/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar
+66822000-66824000 r--s 00006000 08:08 15865987   /home/yiwei/.m2/repository/org/checkerframework/checker-compat-qual/2.0.0/checker-compat-qual-2.0.0.jar
+66824000-6687f000 rw-p 00000000 00:00 0 
+6687f000-66880000 ---p 00000000 00:00 0 
+66880000-66900000 rw-p 00000000 00:00 0 
+66900000-66921000 rw-p 00000000 00:00 0 
+66921000-66a00000 ---p 00000000 00:00 0 
+66a00000-66afb000 rw-p 00000000 00:00 0 
+66afb000-66b00000 ---p 00000000 00:00 0 
+66b00000-66b21000 rw-p 00000000 00:00 0 
+66b21000-66c00000 ---p 00000000 00:00 0 
+66c00000-66c03000 r--s 00006000 08:08 15609717   /home/yiwei/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar
+66c03000-66c08000 r--s 00034000 08:08 14551617   /home/yiwei/.m2/repository/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar
+66c08000-66c0a000 r--s 0000e000 08:08 10881905   /home/yiwei/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar
+66c0a000-66c11000 r--s 0003f000 08:08 14027167   /home/yiwei/.m2/repository/commons-codec/commons-codec/1.10/commons-codec-1.10.jar
+66c11000-66c13000 r--s 0000c000 08:08 13511006   /home/yiwei/.m2/repository/org/apache/commons/commons-exec/1.3/commons-exec-1.3.jar
+66c13000-66c18000 r--s 00021000 08:08 15865985   /home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-support/3.12.0/selenium-support-3.12.0.jar
+66c18000-66c1a000 r--s 00001000 08:08 15865983   /home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.12.0/selenium-safari-driver-3.12.0.jar
+66c1a000-66c21000 r--s 00056000 08:08 12457283   /home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.12.0/selenium-remote-driver-3.12.0.jar
+66c21000-66c23000 r--s 00001000 08:08 15865981   /home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.12.0/selenium-opera-driver-3.12.0.jar
+66c23000-66c28000 r--s 00018000 08:08 9575123    /home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-api/3.12.0/selenium-api-3.12.0.jar
+66c28000-66c29000 ---p 00000000 00:00 0 
+66c29000-66cbf000 rw-p 00000000 00:00 0 
+66cbf000-66dff000 ---p 00000000 00:00 0 
+66dff000-66e15000 rw-p 00000000 00:00 0 
+66e15000-66f54000 ---p 00000000 00:00 0 
+66f54000-66f74000 rw-p 00000000 00:00 0 
+66f74000-66fff000 ---p 00000000 00:00 0 
+66fff000-69ac0000 rw-p 00000000 00:00 0 
+69ac0000-91ac0000 ---p 00000000 00:00 0 
+91ac0000-958c0000 rw-p 00000000 00:00 0 
+974eb000-97740000 rw-p 00000000 00:00 0 
+97740000-a7000000 ---p 00000000 00:00 0 
+a7000000-a7001000 r--s 00003000 08:08 15865979   /home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.12.0/selenium-ie-driver-3.12.0.jar
+a7001000-a7005000 r--s 00018000 08:08 10620600   /home/yiwei/.m2/repository/junit/junit/4.1/junit-4.1.jar
+a7005000-a700c000 r--s 00037000 08:08 6165917    /home/yiwei/Downloads/Tools/libs/junit-4.10.jar
+a700c000-a703e000 r--s 00264000 08:08 15859842   /home/yiwei/Downloads/Tools/libs/guava-23.6-jre.jar
+a703e000-a703f000 ---p 00000000 00:00 0 
+a703f000-a70bf000 rw-p 00000000 00:00 0 
+a70bf000-a70c0000 ---p 00000000 00:00 0 
+a70c0000-a7152000 rw-p 00000000 00:00 0 
+a7152000-a7500000 ---p 00000000 00:00 0 
+a7500000-a7958000 rwxp 00000000 00:00 0 
+a7958000-b6500000 ---p 00000000 00:00 0 
+b6500000-b65fd000 rw-p 00000000 00:00 0 
+b65fd000-b6600000 ---p 00000000 00:00 0 
+b6600000-b6602000 r--s 000c2000 08:08 15865977   /home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.12.0/selenium-firefox-driver-3.12.0.jar
+b6602000-b6609000 r--s 0003f000 08:08 15859838   /home/yiwei/Downloads/Tools/libs/commons-codec-1.10.jar
+b6609000-b660e000 r--s 00034000 08:08 15859841   /home/yiwei/Downloads/Tools/libs/gson-2.8.2.jar
+b660e000-b661b000 r--s 000aa000 08:08 15859843   /home/yiwei/Downloads/Tools/libs/httpclient-4.5.3.jar
+b661b000-b6623000 r--s 00048000 08:08 15859844   /home/yiwei/Downloads/Tools/libs/httpcore-4.4.6.jar
+b6623000-b6632000 r--s 0015e000 08:08 6165748    /home/yiwei/Downloads/Tools/client-combined-3.12.0.jar
+b6632000-b664a000 rw-p 00000000 00:00 0 
+b664a000-b6663000 r-xp 00000000 08:08 11011570   /usr/lib/jvm/java-8-oracle/jre/lib/i386/libzip.so
+b6663000-b6664000 rw-p 00019000 08:08 11011570   /usr/lib/jvm/java-8-oracle/jre/lib/i386/libzip.so
+b6664000-b666e000 r-xp 00000000 08:08 11272296   /lib/i386-linux-gnu/libnss_files-2.19.so
+b666e000-b666f000 r--p 00009000 08:08 11272296   /lib/i386-linux-gnu/libnss_files-2.19.so
+b666f000-b6670000 rw-p 0000a000 08:08 11272296   /lib/i386-linux-gnu/libnss_files-2.19.so
+b6670000-b667a000 r-xp 00000000 08:08 11272288   /lib/i386-linux-gnu/libnss_nis-2.19.so
+b667a000-b667b000 r--p 00009000 08:08 11272288   /lib/i386-linux-gnu/libnss_nis-2.19.so
+b667b000-b667c000 rw-p 0000a000 08:08 11272288   /lib/i386-linux-gnu/libnss_nis-2.19.so
+b667c000-b6691000 r-xp 00000000 08:08 11272284   /lib/i386-linux-gnu/libnsl-2.19.so
+b6691000-b6692000 r--p 00015000 08:08 11272284   /lib/i386-linux-gnu/libnsl-2.19.so
+b6692000-b6693000 rw-p 00016000 08:08 11272284   /lib/i386-linux-gnu/libnsl-2.19.so
+b6693000-b6695000 rw-p 00000000 00:00 0 
+b6695000-b6696000 r--s 00001000 08:08 15865975   /home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.12.0/selenium-edge-driver-3.12.0.jar
+b6696000-b6697000 r--s 00002000 08:08 11015879   /home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.12.0/selenium-chrome-driver-3.12.0.jar
+b6697000-b6699000 r--s 0000c000 08:08 15859839   /home/yiwei/Downloads/Tools/libs/commons-exec-1.3.jar
+b6699000-b669f000 r--s 0005e000 08:08 15859845   /home/yiwei/Downloads/Tools/libs/okhttp-3.9.1.jar
+b669f000-b66a8000 r--s 00074000 08:08 6165752    /home/yiwei/Downloads/Tools/client-combined-3.12.0-sources.jar
+b66a8000-b66b0000 rw-s 00000000 08:08 4720830    /tmp/hsperfdata_yiwei/10402
+b66b0000-b66d4000 r-xp 00000000 08:08 11011591   /usr/lib/jvm/java-8-oracle/jre/lib/i386/libjava.so
+b66d4000-b66d5000 rw-p 00024000 08:08 11011591   /usr/lib/jvm/java-8-oracle/jre/lib/i386/libjava.so
+b66d5000-b66dc000 r-xp 00000000 08:08 11272292   /lib/i386-linux-gnu/librt-2.19.so
+b66dc000-b66dd000 r--p 00006000 08:08 11272292   /lib/i386-linux-gnu/librt-2.19.so
+b66dd000-b66de000 rw-p 00007000 08:08 11272292   /lib/i386-linux-gnu/librt-2.19.so
+b66de000-b66e1000 ---p 00000000 00:00 0 
+b66e1000-b672f000 rw-p 00000000 00:00 0 
+b672f000-b6773000 r-xp 00000000 08:08 11272212   /lib/i386-linux-gnu/libm-2.19.so
+b6773000-b6774000 r--p 00043000 08:08 11272212   /lib/i386-linux-gnu/libm-2.19.so
+b6774000-b6775000 rw-p 00044000 08:08 11272212   /lib/i386-linux-gnu/libm-2.19.so
+b6775000-b7100000 r-xp 00000000 08:08 11011580   /usr/lib/jvm/java-8-oracle/jre/lib/i386/server/libjvm.so
+b7100000-b716d000 rw-p 0098b000 08:08 11011580   /usr/lib/jvm/java-8-oracle/jre/lib/i386/server/libjvm.so
+b716d000-b7596000 rw-p 00000000 00:00 0 
+b7596000-b773e000 r-xp 00000000 08:08 11272293   /lib/i386-linux-gnu/libc-2.19.so
+b773e000-b773f000 ---p 001a8000 08:08 11272293   /lib/i386-linux-gnu/libc-2.19.so
+b773f000-b7741000 r--p 001a8000 08:08 11272293   /lib/i386-linux-gnu/libc-2.19.so
+b7741000-b7742000 rw-p 001aa000 08:08 11272293   /lib/i386-linux-gnu/libc-2.19.so
+b7742000-b7745000 rw-p 00000000 00:00 0 
+b7745000-b7748000 r-xp 00000000 08:08 11272222   /lib/i386-linux-gnu/libdl-2.19.so
+b7748000-b7749000 r--p 00002000 08:08 11272222   /lib/i386-linux-gnu/libdl-2.19.so
+b7749000-b774a000 rw-p 00003000 08:08 11272222   /lib/i386-linux-gnu/libdl-2.19.so
+b774a000-b775e000 r-xp 00000000 08:08 11010802   /usr/lib/jvm/java-8-oracle/lib/i386/jli/libjli.so
+b775e000-b775f000 rw-p 00014000 08:08 11010802   /usr/lib/jvm/java-8-oracle/lib/i386/jli/libjli.so
+b775f000-b7777000 r-xp 00000000 08:08 11272285   /lib/i386-linux-gnu/libpthread-2.19.so
+b7777000-b7778000 r--p 00018000 08:08 11272285   /lib/i386-linux-gnu/libpthread-2.19.so
+b7778000-b7779000 rw-p 00019000 08:08 11272285   /lib/i386-linux-gnu/libpthread-2.19.so
+b7779000-b777c000 rw-p 00000000 00:00 0 
+b777c000-b777d000 r--s 00000000 08:08 8674696    /home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-java/3.12.0/selenium-java-3.12.0.jar
+b777d000-b777f000 r--s 0000e000 08:08 15859840   /home/yiwei/Downloads/Tools/libs/commons-logging-1.2.jar
+b777f000-b7780000 r--s 00013000 08:08 15859846   /home/yiwei/Downloads/Tools/libs/okio-1.13.0.jar
+b7780000-b7787000 r-xp 00000000 08:08 11272283   /lib/i386-linux-gnu/libnss_compat-2.19.so
+b7787000-b7788000 r--p 00006000 08:08 11272283   /lib/i386-linux-gnu/libnss_compat-2.19.so
+b7788000-b7789000 rw-p 00007000 08:08 11272283   /lib/i386-linux-gnu/libnss_compat-2.19.so
+b7789000-b778a000 rw-p 00000000 00:00 0 
+b778a000-b778b000 ---p 00000000 00:00 0 
+b778b000-b7796000 r-xp 00000000 08:08 11011598   /usr/lib/jvm/java-8-oracle/jre/lib/i386/libverify.so
+b7796000-b7797000 rw-p 0000b000 08:08 11011598   /usr/lib/jvm/java-8-oracle/jre/lib/i386/libverify.so
+b7797000-b7799000 rw-p 00000000 00:00 0 
+b7799000-b779b000 r--p 00000000 00:00 0          [vvar]
+b779b000-b779d000 r-xp 00000000 00:00 0          [vdso]
+b779d000-b77bd000 r-xp 00000000 08:08 11272286   /lib/i386-linux-gnu/ld-2.19.so
+b77bd000-b77be000 r--p 0001f000 08:08 11272286   /lib/i386-linux-gnu/ld-2.19.so
+b77be000-b77bf000 rw-p 00020000 08:08 11272286   /lib/i386-linux-gnu/ld-2.19.so
+bfb14000-bfb15000 rwxp 00000000 00:00 0 
+bfb46000-bfb68000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -ea -Dfile.encoding=UTF-8 
+java_command: org.eclipse.jdt.internal.junit.runner.RemoteTestRunner -version 3 -port 36563 -testLoaderClass org.eclipse.jdt.internal.junit4.runner.JUnit4TestLoader -loaderpluginname org.eclipse.jdt.junit4.runtime -classNames outline.runTest
+java_class_path (initial): /home/yiwei/workspace/ArizonaUniversity/target/test-classes:/home/yiwei/workspace/ArizonaUniversity/target/classes:/home/yiwei/Downloads/Tools/client-combined-3.12.0-sources.jar:/home/yiwei/Downloads/Tools/client-combined-3.12.0.jar:/home/yiwei/Downloads/Tools/libs/okio-1.13.0.jar:/home/yiwei/Downloads/Tools/libs/okhttp-3.9.1.jar:/home/yiwei/Downloads/Tools/libs/httpcore-4.4.6.jar:/home/yiwei/Downloads/Tools/libs/httpclient-4.5.3.jar:/home/yiwei/Downloads/Tools/libs/guava-23.6-jre.jar:/home/yiwei/Downloads/Tools/libs/gson-2.8.2.jar:/home/yiwei/Downloads/Tools/libs/commons-logging-1.2.jar:/home/yiwei/Downloads/Tools/libs/commons-exec-1.3.jar:/home/yiwei/Downloads/Tools/libs/commons-codec-1.10.jar:/home/yiwei/Downloads/Tools/libs/byte-buddy-1.8.3.jar:/home/yiwei/Downloads/Tools/libs/junit-4.10.jar:/home/yiwei/.m2/repository/junit/junit/4.1/junit-4.1.jar:/home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-java/3.12.0/selenium-java-3.12.0.jar:/home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-api/3.12.0/selenium-api-3.12.0.jar:/home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-chrome-driver/3.12.0/selenium-chrome-driver-3.12.0.jar:/home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-edge-driver/3.12.0/selenium-edge-driver-3.12.0.jar:/home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-firefox-driver/3.12.0/selenium-firefox-driver-3.12.0.jar:/home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-ie-driver/3.12.0/selenium-ie-driver-3.12.0.jar:/home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-opera-driver/3.12.0/selenium-opera-driver-3.12.0.jar:/home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-remote-driver/3.12.0/selenium-remote-driver-3.12.0.jar:/home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-safari-driver/3.12.0/selenium-safari-driver-3.12.0.jar:/home/yiwei/.m2/repository/org/seleniumhq/selenium/selenium-support/3.12.0/selenium-support-3.12.0.jar:/home/yiwei/.m2/rep
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/node_modules/mocha/bin/:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin
+LD_LIBRARY_PATH=/usr/lib/jvm/java-8-oracle/jre/lib/i386/server:/usr/lib/jvm/java-8-oracle/jre/lib/i386:/usr/lib/jvm/java-8-oracle/jre/../lib/i386:/usr/lib/jvm/java-8-oracle/jre/lib/i386/client:/usr/lib/jvm/java-8-oracle/jre/lib/i386:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x8d66b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x8d66b0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x753700], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x753700], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x753700], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x753700], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x754d80], sa_mask[0]=00100000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x756230], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x756230], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x756230], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x756230], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=14.04
+DISTRIB_CODENAME=trusty
+DISTRIB_DESCRIPTION="Ubuntu 14.04.5 LTS"
+
+uname:Linux 4.4.0-38-generic #57~14.04.1-Ubuntu SMP Tue Sep 6 17:22:19 UTC 2016 i686
+libc:glibc 2.19 NPTL 2.19 
+rlimit: STACK 8192k, CORE 0k, NPROC 46309, NOFILE 4096, AS infinity
+load average:73.47 31.62 19.02
+
+/proc/meminfo:
+MemTotal:        5948960 kB
+MemFree:          288640 kB
+MemAvailable:          0 kB
+Buffers:            1160 kB
+Cached:           405784 kB
+SwapCached:         9720 kB
+Active:          4392796 kB
+Inactive:        1000880 kB
+Active(anon):    4385580 kB
+Inactive(anon):   939504 kB
+Active(file):       7216 kB
+Inactive(file):    61376 kB
+Unevictable:          48 kB
+Mlocked:              48 kB
+HighTotal:       5111084 kB
+HighFree:          65064 kB
+LowTotal:         837876 kB
+LowFree:          223576 kB
+SwapTotal:        773116 kB
+SwapFree:              4 kB
+Dirty:                20 kB
+Writeback:             0 kB
+AnonPages:       4978644 kB
+Mapped:           244600 kB
+Shmem:            337736 kB
+Slab:              62252 kB
+SReclaimable:      25328 kB
+SUnreclaim:        36924 kB
+KernelStack:       18752 kB
+PageTables:        48776 kB
+NFS_Unstable:          0 kB
+Bounce:              960 kB
+WritebackTmp:          0 kB
+CommitLimit:     3747596 kB
+Committed_AS:   20400952 kB
+VmallocTotal:     122880 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+AnonHugePages:   2392064 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       38904 kB
+DirectMap2M:      874496 kB
+
+
+CPU:total 4 (4 cores per cpu, 1 threads per core) family 16 model 5 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, popcnt, mmxext, 3dnowpref, lzcnt, sse4a, tsc, tscinvbit, tscinv
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 5
+model name	: AMD Phenom(tm) II P960 Quad-Core Processor
+stepping	: 3
+microcode	: 0x10000c8
+cpu MHz		: 800.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nonstop_tsc extd_apicid pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate vmmcall npt lbrv svm_lock nrip_save
+bugs		: tlb_mmatch apic_c1e fxsave_leak sysret_ss_attrs
+bogomips	: 3590.82
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 1
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 5
+model name	: AMD Phenom(tm) II P960 Quad-Core Processor
+stepping	: 3
+microcode	: 0x10000c8
+cpu MHz		: 800.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nonstop_tsc extd_apicid pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate vmmcall npt lbrv svm_lock nrip_save
+bugs		: tlb_mmatch apic_c1e fxsave_leak sysret_ss_attrs
+bogomips	: 3590.82
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 2
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 5
+model name	: AMD Phenom(tm) II P960 Quad-Core Processor
+stepping	: 3
+microcode	: 0x10000c8
+cpu MHz		: 800.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nonstop_tsc extd_apicid pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate vmmcall npt lbrv svm_lock nrip_save
+bugs		: tlb_mmatch apic_c1e fxsave_leak sysret_ss_attrs
+bogomips	: 3590.82
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+processor	: 3
+vendor_id	: AuthenticAMD
+cpu family	: 16
+model		: 5
+model name	: AMD Phenom(tm) II P960 Quad-Core Processor
+stepping	: 3
+microcode	: 0x10000c8
+cpu MHz		: 800.000
+cache size	: 512 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fdiv_bug	: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 5
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 3dnowext 3dnow constant_tsc rep_good nonstop_tsc extd_apicid pni monitor cx16 popcnt lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt nodeid_msr hw_pstate vmmcall npt lbrv svm_lock nrip_save
+bugs		: tlb_mmatch apic_c1e fxsave_leak sysret_ss_attrs
+bogomips	: 3590.82
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 48 bits physical, 48 bits virtual
+power management: ts ttp tm stc 100mhzsteps hwpstate
+
+
+
+Memory: 4k page, physical 5948960k(288640k free), swap 773116k(4k free)
+
+vm_info: Java HotSpot(TM) Server VM (25.111-b14) for linux-x86 JRE (1.8.0_111-b14), built on Sep 22 2016 15:52:27 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Fri Jun  1 00:28:40 2018
+elapsed time: 365 seconds (0d 0h 6m 5s)
+

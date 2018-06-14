@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0 https://mvnrepository.com/artifact/junit/junit " xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd ">
+  <modelVersion>4.0.0</modelVersion>
+<pluginManagement>
+  <plugins>
+    <plugin>
+     <groupId>org.eclipse.m2e</groupId>
+     <artifactId>lifecycle-mapping</artifactId>
+     <version>1.0.0</version>
+     <configuration>
+       <lifecycleMappingMetadata>
+         <pluginExecutions>
+           <pluginExecution>
+             <pluginExecutionFilter>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-compiler-plugin</artifactId>
+               <versionRange>3.1</versionRange>
+               <packaging>jar</packaging>
+               <goals>
+                 <goal>some-goal</goal>
+               </goals>
+             </pluginExecutionFilter>
+             <action>
+                <execute>
+                 <runOnIncremental>false</runOnIncremental>
+               </execute >
+             </action>
+           </pluginExecution>
+         </pluginExecutions>
+       </lifecycleMappingMetadata>
+     </configuration>
+    </plugin>
+  </plugins>
+</pluginManagement>
+  <groupId>CucumberTest</groupId>
+  <artifactId>ArizonaUniversity</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>ArizonaUniversity</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    
+    <dependency> 
+	   <groupId>org.seleniumhq.selenium</groupId> 
+	   <artifactId>selenium-java</artifactId> 
+	   <version>3.12.0</version> 
+	</dependency>
+	<dependency> 
+	   <groupId>info.cukes</groupId> 
+	   <artifactId>cucumber-java</artifactId> 
+	   <version>1.0.2</version> 
+	   <scope>test</scope> 
+	</dependency>
+	<dependency> 
+	   <groupId>info.cukes</groupId> 
+	   <artifactId>cucumber-junit</artifactId> 
+	   <version>1.0.2</version> 
+	   <scope>test</scope> 
+	</dependency>
+	  </dependencies>
+</project>
