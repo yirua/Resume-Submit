@@ -35,6 +35,7 @@
 	<classpathentry exported="true" kind="lib" path="res/libraries/httpcore-4.4.6.jar"/>
 	<classpathentry exported="true" kind="lib" path="res/libraries/okhttp-3.9.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="res/libraries/okio-1.13.0.jar"/>
-	<classpathentry kind="lib" path="/home/yiwei/eclipse_workspace/QA_Engr_Resume_Submit/res/libraries/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="/home/yiwei/eclipse-workspace/QA_Engineer_Submit/res/libraries/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="/home/yiwei/eclipse-workspace/QA_Engineer_Submit/res/libraries/cucumber-junit-3.0.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
