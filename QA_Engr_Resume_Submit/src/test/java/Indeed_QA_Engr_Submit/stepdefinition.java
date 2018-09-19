@@ -26,22 +26,40 @@ public class stepdefinition {
 	   
    }
 
-   @Given("^I open Indeed\\.ca$")
+   @Given("I open Indeed.ca")
    public void i_open_Indeed_ca() throws Throwable {
-       // Write code here that turns the phrase above into concrete actions
+	   int x = 0;
+		  while (x<10){
+			  try{
+				  driver.navigate().to("http://www.indeed.ca "); 
+				  break;
+			  }
+			  catch (Exception e){
+				  System.out.println(e);
+				  x++;
+				  System.out.println("waiting for 2 secs and try to navigate indeed.ca again..");
+				  Thread.sleep(2000);
+			  }
+			  
+		  }
+		  if (x==10){
+			  System.out.println("After 10 tries, still can not access www.indeed.ca..");
+		  }
        
    }
 
    @Given("^I input QA Engineer and Montreal, QC$")
    public void i_input_QA_Engineer_and_Montreal_QC() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-       
+	   //id="text-input-what"
+	   driver.findElement(By.id("text-input-what")).sendKeys("QA Engineer");
+	   //driver.findElement(By.id("text-input-where")).sendKeys("Montréal, QC");
    }
 
    @Given("^I click Find Jobs button$")
    public void i_click_Find_Jobs_button() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-       
+       driver.findElements(By.id("whatWhere")).get(2).click();
    }
 
    @Given("^I choose one of the Software QA Engineer link$")
@@ -53,25 +71,25 @@ public class stepdefinition {
    @Given("^I click Apply Now button$")
    public void i_click_Apply_Now_button() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-       
+       driver.findElement(By.className("indeed-apply-button-label")).click();
    }
 
    @Given("^I input My name$")
    public void i_input_My_name() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-       
+	   driver.findElement(By.id("input-applicant.name")).sendKeys("YiWei Sun");
    }
 
    @Given("^I input My phone$")
    public void i_input_My_phone() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-       
+	   driver.findElement(By.id("input-applicant.phoneNumber")).sendKeys("514-482-5915");
    }
 
    @Given("^I input My Email$")
    public void i_input_My_Email() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-       
+	   driver.findElement(By.id("input-applicant.email")).sendKeys("yiweis@gmail.com");
    }
 
    @When("^I Click Browse button$")
