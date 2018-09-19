@@ -8,18 +8,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver; 
 
-import cucumber.annotation.en.Given; 
-import cucumber.annotation.en.Then; 
-import cucumber.annotation.en.When;
-import cucumber.runtime.PendingException;
-import cucumber.annotation.en.And;
+import cucumber.api.java.en.Given; 
+import cucumber.api.java.en.Then; 
+import cucumber.api.java.en.When;
+//import cucumber.api.runtime.PendingException;
+import cucumber.api.java.en.And;
 
 public class stepdefinition { 
    WebDriver driver = null; 
 
  
 
-   @Given("^I have open the browser$")
+   @cucumber.api.java.en.Given("^I have open the browser$")
    public void I_have_open_the_browser() throws Exception {
 	   System.setProperty("webdriver.gecko.driver", "res/geckodriver");
 
@@ -27,7 +27,7 @@ public class stepdefinition {
 	   
    }
 
-   @Given("^I open Arizona University website$")
+   @cucumber.api.java.en.Given("^I open Arizona University website$")
    public void I_open_Arizona_University_website() throws Exception {
 	  int x = 0;
 	  while (x<10){
