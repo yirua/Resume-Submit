@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.By; 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import cucumber.api.java.en.And;
@@ -15,14 +16,15 @@ import cucumber.api.java.en.When;
 
 public class stepdefinition { 
    WebDriver driver = null; 
-
+   int job_ctr =0; 
  
 
    @Given("^I have open the browser$")
    public void I_have_open_the_browser() throws Exception {
 	   System.setProperty("webdriver.gecko.driver", "res/geckodriver");
 
-	   driver = new FirefoxDriver(); 
+	   //driver = new FirefoxDriver(); 
+	   driver = new ChromeDriver();
 	   
    }
 
@@ -59,38 +61,112 @@ public class stepdefinition {
    @Given("^I click Find Jobs button$")
    public void i_click_Find_Jobs_button() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-       driver.findElements(By.id("whatWhere")).get(2).click();
+       driver.findElement(By.xpath("//*[@id=\"whatWhere\"]/form/div[3]/button")).click();
+       Thread.sleep(1000);
    }
 
    @Given("^I choose one of the Software QA Engineer link$")
    public void i_choose_one_of_the_Software_QA_Engineer_link() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-       
+      // driver.findElements(By.className("jobtitle turnstileLink")).get(job_ctr).click();
+       driver.findElements(By.className("turnstileLink")).get(job_ctr).click();
+       job_ctr++;
+       Thread.sleep(1000);
    }
 
    @Given("^I click Apply Now button$")
    public void i_click_Apply_Now_button() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-       driver.findElement(By.className("indeed-apply-button-label")).click();
+      try { 
+    	  	driver.findElement(By.id("indeed-apply-button")).click();
+    	  }
+      catch (Exception e) {
+    	  try {
+    		  System.out.println(e);
+    		  driver.findElement(By.xpath("//*[@id=\"indeedApplyButtonContainer\"]/span/div[1]/button")).click();
+    		 
+    	  }
+    	  catch(Exception e1) {
+    		  try {
+    			  System.out.print(e1);
+    			  driver.findElement(By.className("jobsearch-IndeedApplyButton")).click();
+    		  
+    		  }
+    		  catch(Exception e2) {
+    			  System.out.print(e2);
+    			  Thread.sleep(20000);
+    		  }
+    	  }
+      }
    }
 
    @Given("^I input My name$")
    public void i_input_My_name() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-	   driver.findElement(By.id("input-applicant.name")).sendKeys("YiWei Sun");
+	  int x=0;
+	  while(x<10) {
+	   try{
+		   driver.findElement(By.id("input-applicant.name")).sendKeys("YiWei Sun");
+		  
+		   break;
+	   }
+	   catch(Exception e) {
+		   //System.out.print(e);
+		   try{
+			   driver.findElement(By.name("applicant.name")).sendKeys("YiWei Sun");
+			   break;
+		   }
+		   catch(Exception e1) {
+			   Thread.sleep(1000);
+			   x++;	
+		   }
+		   	   
+	   }
+	   
+	  }
+	  if(x==10) {
+		  System.out.println("The input name box does not show up..");
+	  }
    }
 
    @Given("^I input My phone$")
    public void i_input_My_phone() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-	   driver.findElement(By.id("input-applicant.phoneNumber")).sendKeys("514-482-5915");
+	   int x=0;
+		  while(x<10) {
+			  try{
+				  driver.findElement(By.id("input-applicant.phoneNumber")).sendKeys("514-482-5915");
+				  break;
+			  }
+			  catch(Exception e) {
+				  Thread.sleep(1000);
+				  x++;
+				  System.out.println(e);
+				  System.out.println("try to  find the phonenumber element again..");
+			  }
+		  }
+		  if(x==10) {
+			  System.out.println("Could not find the phoneNumber element/n");
+		  }
    }
 
    @Given("^I input My Email$")
    public void i_input_My_Email() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-	   driver.findElement(By.id("input-applicant.email")).sendKeys("yiweis@gmail.com");
-   }
+	  int x=0;
+	  while(x<10) {
+		  try{
+			  driver.findElement(By.id("input-applicant.email")).sendKeys("yiweis@gmail.com");
+		  }
+		  catch(Exception e) {
+			  x++;
+			  Thread.sleep(1000);
+		  }
+	  }
+	  if(x==10) {
+		  
+	  }
+	  }
 
    @When("^I Click Browse button$")
    public void i_Click_Browse_button() throws Throwable {
@@ -101,6 +177,16 @@ public class stepdefinition {
    @When("^I input the QA_Engr resume file name$")
    public void i_input_the_QA_Engr_resume_file_name() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
+      WebElement get_resume =driver.findElement(By.id("ia-FilePicker-resume"));
+     
+      // enter the file path onto the file-selection input field
+      get_resume.sendKeys("/home/yiwei/Downloads/RESUME/QA/Software_QA_Engineer_Resume.pdf");
+
+      // check the "I accept the terms of service" check box
+      //driver.findElement(By.id("terms")).click();
+
+      // click the "UploadFile" button
+      //driver.findElement(By.name("send")).click();
       
    }
 
@@ -110,12 +196,16 @@ public class stepdefinition {
        
    }
 
-   @Then("^The Continue button shows up$")
-   public void the_Continue_button_shows_up() throws Throwable {
+   @When("I click continue button")
+   public void i_click_continue_button()  throws Throwable {
        // Write code here that turns the phrase above into concrete actions
-       
+       driver.findElement(By.id("form-action-continue")).click();
    }
-
+   @Then("The Continue button shows up")
+   public void the_Continue_button_shows_up() throws Throwable{
+       // Write code here that turns the phrase above into concrete actions
+	   driver.findElement(By.id("form-action-continue")).click();
+   }
    @Then("^I click the Apply button$")
    public void i_click_the_Apply_button() throws Throwable {
        // Write code here that turns the phrase above into concrete actions

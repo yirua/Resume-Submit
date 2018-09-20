@@ -12,7 +12,7 @@
         "steps": [
           {
             "result": {
-              "duration": 8009818668,
+              "duration": 2811069178,
               "status": "passed"
             },
             "line": 25,
@@ -24,7 +24,7 @@
           },
           {
             "result": {
-              "duration": 3857751624,
+              "duration": 2229308453,
               "status": "passed"
             },
             "line": 26,
@@ -36,7 +36,7 @@
           },
           {
             "result": {
-              "duration": 162892564,
+              "duration": 497568369,
               "status": "passed"
             },
             "line": 27,
@@ -48,7 +48,7 @@
           },
           {
             "result": {
-              "duration": 384725561,
+              "duration": 3620463600,
               "status": "passed"
             },
             "line": 28,
@@ -60,7 +60,7 @@
           },
           {
             "result": {
-              "duration": 4276674,
+              "duration": 1225407632,
               "status": "passed"
             },
             "line": 29,
@@ -72,7 +72,7 @@
           },
           {
             "result": {
-              "duration": 5910258,
+              "duration": 20262162411,
               "status": "passed"
             },
             "line": 30,
@@ -84,9 +84,8 @@
           },
           {
             "result": {
-              "error_message": "org.openqa.selenium.InvalidSelectorException: Given css selector expression \"#\" is invalid: InvalidSelectorError: \u0027#\u0027 is not a valid selector: \"#\"\nFor documentation on this error, please visit: http://seleniumhq.org/exceptions/invalid_selector_exception.html\nBuild info: version: \u00273.11.0\u0027, revision: \u0027e59cfb3\u0027, time: \u00272018-03-11T20:26:55.152Z\u0027\nSystem info: host: \u0027yiwei-Aspire-A315-21\u0027, ip: \u0027127.0.1.1\u0027, os.name: \u0027Linux\u0027, os.arch: \u0027amd64\u0027, os.version: \u00274.15.0-34-generic\u0027, java.version: \u002710.0.2\u0027\nDriver info: org.openqa.selenium.firefox.FirefoxDriver\nCapabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 62.0, javascriptEnabled: true, moz:accessibilityChecks: false, moz:geckodriverVersion: 0.22.0, moz:headless: false, moz:processID: 14932, moz:profile: /tmp/rust_mozprofile.2qdnVA..., moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, platformVersion: 4.15.0-34-generic, rotatable: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}}\nSession ID: 2612e3cc-6e67-45ef-ab61-47f4bc4bea2a\n*** Element info: {Using\u003did, value\u003d}\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:319)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:365)\n\tat org.openqa.selenium.By$ById.findElement(By.java:218)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:311)\n\tat Indeed_QA_Engr_Submit.stepdefinition.i_input_My_name(stepdefinition.java:80)\n\tat ✽.I input My name(src/test/java/Indeed_QA_Engr_Submit/outline.feature:31)\n",
-              "duration": 206982247,
-              "status": "failed"
+              "duration": 10478083721,
+              "status": "passed"
             },
             "line": 31,
             "name": "I input My name",
@@ -97,7 +96,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 10263586991,
+              "status": "passed"
             },
             "line": 32,
             "name": "I input My phone",
@@ -108,7 +108,8 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 10235873211,
+              "status": "passed"
             },
             "line": 33,
             "name": "I input My Email",
@@ -119,12 +120,14 @@
           },
           {
             "result": {
-              "status": "skipped"
+              "error_message": "org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"id\",\"selector\":\"ia-FilePicker-resume\"}\n  (Session info: chrome\u003d69.0.3497.81)\n  (Driver info: chromedriver\u003d2.42.591071 (0b695ff80972cc1a65a5cd643186d2ae582cd4ac),platform\u003dLinux 4.15.0-34-generic x86_64) (WARNING: The server did not provide any stacktrace information)\nCommand duration or timeout: 0 milliseconds\nFor documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.12.0\u0027, revision: \u00277c6e0b3\u0027, time: \u00272018-05-08T15:15:03.216Z\u0027\nSystem info: host: \u0027yiwei-Aspire-A315-21\u0027, ip: \u0027127.0.1.1\u0027, os.name: \u0027Linux\u0027, os.arch: \u0027amd64\u0027, os.version: \u00274.15.0-34-generic\u0027, java.version: \u002710.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.42.591071 (0b695ff80972cc..., userDataDir: /tmp/.org.chromium.Chromium...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:36761}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 69.0.3497.81, webStorageEnabled: true}\nSession ID: b281f2ceb19e8cfdc5c8d843e5190005\n*** Element info: {Using\u003did, value\u003dia-FilePicker-resume}\n\tat jdk.internal.reflect.GeneratedConstructorAccessor8.newInstance(Unknown Source)\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)\n\tat org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:214)\n\tat org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:166)\n\tat org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)\n\tat org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:80)\n\tat org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:44)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:543)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:317)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementById(RemoteWebDriver.java:363)\n\tat org.openqa.selenium.By$ById.findElement(By.java:188)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:309)\n\tat Indeed_QA_Engr_Submit.stepdefinition.i_input_the_QA_Engr_resume_file_name(stepdefinition.java:180)\n\tat ✽.I input the QA_Engr resume file name(src/test/java/Indeed_QA_Engr_Submit/outline.feature:35)\n",
+              "duration": 31197869,
+              "status": "failed"
             },
-            "line": 34,
-            "name": "I Click Browse button",
+            "line": 35,
+            "name": "I input the QA_Engr resume file name",
             "match": {
-              "location": "stepdefinition.i_Click_Browse_button()"
+              "location": "stepdefinition.i_input_the_QA_Engr_resume_file_name()"
             },
             "keyword": "When "
           },
@@ -132,33 +135,20 @@
             "result": {
               "status": "skipped"
             },
-            "line": 35,
-            "name": "I input the QA_Engr resume file name",
-            "match": {
-              "location": "stepdefinition.i_input_the_QA_Engr_resume_file_name()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "skipped"
-            },
             "line": 36,
-            "name": "I click open button",
+            "name": "I click continue button",
             "match": {
-              "location": "stepdefinition.i_click_open_button()"
+              "location": "stepdefinition.i_click_continue_button()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "status": "skipped"
+              "status": "undefined"
             },
             "line": 37,
             "name": "The Continue button shows up",
-            "match": {
-              "location": "stepdefinition.the_Continue_button_shows_up()"
-            },
+            "match": {},
             "keyword": "Then "
           },
           {
