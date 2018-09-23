@@ -66,37 +66,3 @@ formatter.step({
 formatter.match({
   "location": "stepdefinition.i_input_My_information()"
 });
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "I click continue button",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "stepdefinition.i_click_continue_button()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "I click the Apply button",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "stepdefinition.i_click_the_Apply_button()"
-});
-formatter.result({
-  "status": "passed"
-});
-formatter.step({
-  "name": "I close the browser",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "stepdefinition.I_close_the_browser()"
-});
-formatter.result({
-  "status": "passed"
-});
-});
