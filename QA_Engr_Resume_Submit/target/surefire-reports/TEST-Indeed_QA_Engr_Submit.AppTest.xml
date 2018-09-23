@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="Indeed_QA_Engr_Submit.AppTest" time="1.204" errors="1" skipped="0">
+<testsuite tests="1" failures="0" name="Indeed_QA_Engr_Submit.AppTest" time="1.001" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="10.0.2+13-Ubuntu-1ubuntu0.18.04.2"/>
@@ -25,7 +25,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Linux"/>
-    <property name="classworlds.conf" value="/home/yiwei/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf12181539513269346855.tmp"/>
+    <property name="classworlds.conf" value="/home/yiwei/eclipse-workspace/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf16510596948599098236.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
     <property name="jdk.debug" value="release"/>
@@ -42,7 +42,7 @@
     <property name="java.class.path" value="/snap/eclipse/29/plugins/org.eclipse.m2e.maven.runtime_1.9.0.20180606-2035/jars/plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="10"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B install"/>
     <property name="java.home" value="/usr/lib/jvm/java-11-openjdk-amd64"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -60,7 +60,7 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="Scenario Indeed Submit Resume" name="Search QA Engineer position Exists In Canada" time="1.204">
+  <testcase classname="Scenario Indeed Submit Resume" name="Search QA Engineer position Exists In Canada" time="1.001">
     <error message="com.google.common.util.concurrent.SimpleTimeLimiter.create(Ljava/util/concurrent/ExecutorService;)Lcom/google/common/util/concurrent/SimpleTimeLimiter;" type="java.lang.NoSuchMethodError">java.lang.NoSuchMethodError: com.google.common.util.concurrent.SimpleTimeLimiter.create(Ljava/util/concurrent/ExecutorService;)Lcom/google/common/util/concurrent/SimpleTimeLimiter;
 	at org.openqa.selenium.net.UrlChecker.&lt;init&gt;(UrlChecker.java:62)
 	at org.openqa.selenium.remote.service.DriverService.waitUntilAvailable(DriverService.java:187)
@@ -72,7 +72,7 @@
 	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:181)
 	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:168)
 	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:123)
-	at Indeed_QA_Engr_Submit.stepdefinition.I_have_open_the_browser(stepdefinition.java:29)
+	at Indeed_QA_Engr_Submit.stepdefinition.I_have_open_the_browser(stepdefinition.java:31)
 	at ✽.I have open the browser(src/test/java/Indeed_QA_Engr_Submit/outline.feature:25)
 </error>
     <system-out>Feature: Scenario Indeed Submit Resume
@@ -90,22 +90,17 @@
 	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:181)
 	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:168)
 	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:123)
-	at Indeed_QA_Engr_Submit.stepdefinition.I_have_open_the_browser(stepdefinition.java:29)
+	at Indeed_QA_Engr_Submit.stepdefinition.I_have_open_the_browser(stepdefinition.java:31)
 	at ✽.I have open the browser(src/test/java/Indeed_QA_Engr_Submit/outline.feature:25)
 &amp;#27;[0m
     &amp;#27;[36mGiven &amp;#27;[0m&amp;#27;[36mI open Indeed.ca&amp;#27;[0m                               &amp;#27;[90m# stepdefinition.i_open_Indeed_ca()&amp;#27;[0m
     &amp;#27;[36mGiven &amp;#27;[0m&amp;#27;[36mI input QA Engineer and Montreal, QC&amp;#27;[0m           &amp;#27;[90m# stepdefinition.i_input_QA_Engineer_and_Montreal_QC()&amp;#27;[0m
     &amp;#27;[36mGiven &amp;#27;[0m&amp;#27;[36mI click Find Jobs button&amp;#27;[0m                       &amp;#27;[90m# stepdefinition.i_click_Find_Jobs_button()&amp;#27;[0m
     &amp;#27;[36mGiven &amp;#27;[0m&amp;#27;[36mI choose one of the Software QA Engineer link&amp;#27;[0m  &amp;#27;[90m# stepdefinition.i_choose_one_of_the_Software_QA_Engineer_link()&amp;#27;[0m
-    &amp;#27;[36mGiven &amp;#27;[0m&amp;#27;[36mI click Apply Now button&amp;#27;[0m                       &amp;#27;[90m# stepdefinition.i_click_Apply_Now_button()&amp;#27;[0m
     &amp;#27;[36mWhen &amp;#27;[0m&amp;#27;[36mI input My information&amp;#27;[0m                          &amp;#27;[90m# stepdefinition.i_input_My_information()&amp;#27;[0m
     &amp;#27;[36mAnd &amp;#27;[0m&amp;#27;[36mI click continue button&amp;#27;[0m                          &amp;#27;[90m# stepdefinition.i_click_continue_button()&amp;#27;[0m
-    &amp;#27;[36mThen &amp;#27;[0m&amp;#27;[36mThe Continue button shows up&amp;#27;[0m                    &amp;#27;[90m# stepdefinition.the_Continue_button_shows_up()&amp;#27;[0m
     &amp;#27;[36mThen &amp;#27;[0m&amp;#27;[36mI click the Apply button&amp;#27;[0m                        &amp;#27;[90m# stepdefinition.i_click_the_Apply_button()&amp;#27;[0m
     &amp;#27;[36mThen &amp;#27;[0m&amp;#27;[36mI close the browser&amp;#27;[0m                             &amp;#27;[90m# stepdefinition.I_close_the_browser()&amp;#27;[0m
 </system-out>
-    <system-err>Starting ChromeDriver 2.42.591071 (0b695ff80972cc1a65a5cd643186d2ae582cd4ac) on port 3040
-Only local connections are allowed.
-</system-err>
   </testcase>
 </testsuite>

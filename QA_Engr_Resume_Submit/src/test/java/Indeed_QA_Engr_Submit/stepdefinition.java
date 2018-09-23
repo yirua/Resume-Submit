@@ -28,7 +28,7 @@ public class stepdefinition {
 	   System.setProperty("webdriver.gecko.driver", "res/geckodriver");
 
 	   //driver = new FirefoxDriver(); 
-	   driver = new ChromeDriver();
+	   this.driver = new ChromeDriver();
 	   
    }
 
@@ -102,26 +102,7 @@ public class stepdefinition {
 	   parentWindowHandler = driver.getWindowHandle(); // Store your parent window
 	   String subWindowHandler = null;
 	   i_click_Apply_Now_button();
-	   //click the apply button and wait for 2 secs
-	  /* try { 
-   	  		Thread.sleep(1000);
-		   driver.findElement(By.id("indeed-apply-button")).click();
-   	  		//driver.findElement(By.className("indeed-apply-button")).click();
-   	  	}
-		   catch (Exception e) {
-		   	  try {
-		   		  System.out.println(e);
-		   		  Thread.sleep(1000);
-		   		  driver.findElement(By.xpath("//*[@id=\"indeedApplyButtonContainer\"]/span/div[1]/button")).click();
-		   		 //driver.findElement(By.className("indeed-apply-button")).click();
-		   	  }
-		   	  catch(Exception e1) {	   		 
-		   			  System.out.print(e1);
-		   			  Thread.sleep(20000);
-		   		  }
-	   	  }*/
-	   //Thread.sleep(20000);
-	   
+	  	   
 	   ////////////////Driver Handle switch to popup window//////////////////////////////////////////////////////////////////////
 	   Set<String> handles = driver.getWindowHandles(); // get all window handles
 	   Iterator<String> iterator = handles.iterator();
@@ -129,8 +110,8 @@ public class stepdefinition {
 	       subWindowHandler = iterator.next();
 	   }
 	   driver.switchTo().window(subWindowHandler); // switch to popup window
-       
-	   driver.switchTo().frame(driver.findElement(By.id("indeedapply-modal-preload-iframe")));
+       //WebElement form_element= driver.findElement(By.cssSelector("iframe[name='indeedapply-modal-preload-iframe']"));
+	   driver.switchTo().frame("indeedapply-modal-preload-iframe");
 
 	   Thread.sleep(1000);
        //////////////////////////////////////////////////////////////////////////////////////
@@ -201,7 +182,8 @@ public class stepdefinition {
 		       System.out.println("The element in the pop page does not show up, giving it another try..");
 			   Thread.sleep(5000);
 			   x++;	
-		      // driver.switchTo().frame("indeedapply-modal-preload-iframe");
+			   //driver.switchTo().frame("indeedapply-modal-preload-iframe");
+
 		      /* WebElement form_input= driver.findElement(By.id("ia-container"));
 			   driver.switchTo().frame(form_input);*/
 		       //driver.switchTo().frame(driver.findElement(By.id("indeedapply-modal-preload-iframe")));
