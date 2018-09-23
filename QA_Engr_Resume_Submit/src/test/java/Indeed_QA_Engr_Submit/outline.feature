@@ -27,14 +27,15 @@ Feature: Scenario Indeed Submit Resume
 		Given I input QA Engineer and Montreal, QC
 		Given I click Find Jobs button
 		Given I choose one of the Software QA Engineer link
-		Given I click Apply Now button
-		Given I input My name		
-		Given I input My phone
-		Given I input My Email		
+		#Given I click Apply Now button
+		When 	I input My information
+		#Given I input My name		
+		#Given I input My phone
+		# Given I input My Email		
 		#When I Click Browse button
-		When I input the QA_Engr resume file name
+		# When I input the QA_Engr resume file name
 		And I click continue button
-		Then The Continue button shows up
+		#Then The Continue button shows up
 		Then I click the Apply button
 		Then I close the browser
 		
