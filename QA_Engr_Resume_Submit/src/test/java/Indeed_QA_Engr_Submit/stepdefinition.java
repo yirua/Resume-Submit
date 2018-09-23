@@ -3,6 +3,7 @@ package Indeed_QA_Engr_Submit;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.openqa.selenium.By; 
@@ -104,6 +105,22 @@ public class stepdefinition {
 	   i_click_Apply_Now_button();
 	  	   
 	   ////////////////Driver Handle switch to popup window//////////////////////////////////////////////////////////////////////
+	   /*Set<String> handles = driver.getWindowHandles(); // get all window handles
+	   Iterator<String> iterator = handles.iterator();
+	   while (iterator.hasNext()){
+	       subWindowHandler = iterator.next();
+	   }
+	   driver.switchTo().window(subWindowHandler); // switch to popup window
+       WebElement form_element= driver.findElement(By.cssSelector("iframe[name='indeedapply-modal-preload-iframe']"));
+	   driver.switchTo().frame(form_element);
+	   driver.switchTo().frame(driver.findElement(By.tagName("iframe")));*/
+	   i_get_into_inputForm();
+	   //driver.findElement(By.name("applicant.name")).sendKeys("YiWei Sun");
+	   Thread.sleep(1000);
+       //////////////////////////////////////////////////////////////////////////////////////
+   }
+   public void i_get_into_inputForm() throws Throwable{
+	   String subWindowHandler="";
 	   Set<String> handles = driver.getWindowHandles(); // get all window handles
 	   Iterator<String> iterator = handles.iterator();
 	   while (iterator.hasNext()){
@@ -113,11 +130,7 @@ public class stepdefinition {
        WebElement form_element= driver.findElement(By.cssSelector("iframe[name='indeedapply-modal-preload-iframe']"));
 	   driver.switchTo().frame(form_element);
 	   driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
-	   //driver.findElement(By.name("applicant.name")).sendKeys("YiWei Sun");
-	   Thread.sleep(1000);
-       //////////////////////////////////////////////////////////////////////////////////////
    }
-
    @Given("^I click Apply Now button$")
    public void i_click_Apply_Now_button() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
@@ -186,8 +199,7 @@ public class stepdefinition {
 			   //driver.switchTo().frame("indeedapply-modal-preload-iframe");
 
 		      // WebElement form_input= driver.findElement(By.className("indeed-apply-popup"));
-			   WebElement form_input = driver.findElement(By.xpath("/html/body/iframe"));
-		       driver.switchTo().frame(form_input);
+			   i_get_into_inputForm();
 			   //driver.switchTo().window(form_input);
 		       //driver.switchTo().frame(driver.findElement(By.id("indeedapply-modal-preload-iframe")));
 			   /*for(String winHandle : driver.getWindowHandles()){
@@ -203,15 +215,20 @@ public class stepdefinition {
 		  
 	  }
 	  i_click_continue_button();
-	  driver.switchTo().window(parentWindowHandler);
-	  // Close the new window, if that window no more required
-	   driver.close();
-
-	   // Switch back to original browser (first window)
-	   driver.switchTo().window(winHandleBefore);
+	  i_get_into_inputForm();
+	  //after input some information, continue
+	  Thread.sleep(5000);
+	  i_click_continue_button();
+	  Thread.sleep(10000);
+	  
 	  //driver.switchTo().window(winHandleBefore);  // switch back to parent window
    }
-   
+   @Then("I click Submit button")
+   public void i_click_Submit_button() throws Throwable{
+       // Write code here that turns the phrase above into concrete actions
+	   i_get_into_inputForm();
+	   driver.findElement(By.id("form-action-submit")).click();
+   }
    @Given("^I input My name$")
    public void i_input_My_name() throws Throwable {
        // Write code here that turns the phrase above into concrete actions
@@ -327,8 +344,15 @@ public class stepdefinition {
    public void i_click_continue_button()  throws Throwable {
        // Write code here that turns the phrase above into concrete actions
        int x=0;
+       
        while(x<10) {
     	   try{
+    		   try{
+    			   driver.findElement(By.id("recaptcha-anchor")).click();
+    		   }catch (NoSuchElementException recap_e) {
+    			   System.out.println(recap_e);
+    			   
+    		   }
     		   driver.findElement(By.id("form-action-continue")).click();
     		   break;
     	   }
@@ -391,7 +415,12 @@ public class stepdefinition {
    }
    @Then("^I close the browser$")
    public void I_close_the_browser() throws Exception{
-       
+	   driver.switchTo().window(parentWindowHandler);
+		  // Close the new window, if that window no more required
+		   driver.close();
+
+		   // Switch back to original browser (first window)
+		   driver.switchTo().window(winHandleBefore);
        driver.close();
    }
    
