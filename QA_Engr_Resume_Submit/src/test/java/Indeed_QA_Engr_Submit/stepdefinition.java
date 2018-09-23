@@ -110,9 +110,10 @@ public class stepdefinition {
 	       subWindowHandler = iterator.next();
 	   }
 	   driver.switchTo().window(subWindowHandler); // switch to popup window
-       //WebElement form_element= driver.findElement(By.cssSelector("iframe[name='indeedapply-modal-preload-iframe']"));
-	   driver.switchTo().frame("indeedapply-modal-preload-iframe");
-
+       WebElement form_element= driver.findElement(By.cssSelector("iframe[name='indeedapply-modal-preload-iframe']"));
+	   driver.switchTo().frame(form_element);
+	   driver.switchTo().frame(driver.findElement(By.tagName("iframe")));
+	   //driver.findElement(By.name("applicant.name")).sendKeys("YiWei Sun");
 	   Thread.sleep(1000);
        //////////////////////////////////////////////////////////////////////////////////////
    }
@@ -164,8 +165,8 @@ public class stepdefinition {
 	   int x=0;
 	  while(x<10) {
 	   try{
-		   driver.findElement(By.xpath("//*[@id=\"input-applicant.name\"]")).sendKeys("YiWei Sun");
-		   //driver.findElement(By.name("applicant.name")).sendKeys("YiWei Sun");
+		  // driver.findElement(By.xpath("//*[@id=\"input-applicant.name\"]")).sendKeys("YiWei Sun");
+		   driver.findElement(By.name("applicant.name")).sendKeys("YiWei Sun");
 		   //driver.findElement(By.id("input-applicant.name")).sendKeys("YiWei Sun");
 
 		   driver.findElement(By.id("input-applicant.phoneNumber")).sendKeys("514-482-5915");
@@ -184,8 +185,10 @@ public class stepdefinition {
 			   x++;	
 			   //driver.switchTo().frame("indeedapply-modal-preload-iframe");
 
-		      /* WebElement form_input= driver.findElement(By.id("ia-container"));
-			   driver.switchTo().frame(form_input);*/
+		      // WebElement form_input= driver.findElement(By.className("indeed-apply-popup"));
+			   WebElement form_input = driver.findElement(By.xpath("/html/body/iframe"));
+		       driver.switchTo().frame(form_input);
+			   //driver.switchTo().window(form_input);
 		       //driver.switchTo().frame(driver.findElement(By.id("indeedapply-modal-preload-iframe")));
 			   /*for(String winHandle : driver.getWindowHandles()){
 			       driver.switchTo().window(winHandle);
@@ -199,6 +202,7 @@ public class stepdefinition {
 		  System.out.println("The input name box does not show up..");
 		  
 	  }
+	  i_click_continue_button();
 	  driver.switchTo().window(parentWindowHandler);
 	  // Close the new window, if that window no more required
 	   driver.close();

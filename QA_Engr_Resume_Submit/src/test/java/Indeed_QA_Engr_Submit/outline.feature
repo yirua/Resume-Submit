@@ -34,9 +34,9 @@ Feature: Scenario Indeed Submit Resume
 		# Given I input My Email		
 		#When I Click Browse button
 		# When I input the QA_Engr resume file name
-		And I click continue button
+		# And I click continue button
 		#Then The Continue button shows up
-		Then I click the Apply button
+		Then I click Submit button
 		Then I close the browser
 		
 #As a QA Engineer, I would like to apply the opening jobs in US
