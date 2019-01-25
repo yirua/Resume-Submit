@@ -32,8 +32,8 @@ public class stepdefinition {
 	  int x = 0;
 	  while (x<10){
 		  try{
-			 // driver.navigate().to("https://webapp4.asu.edu/catalog "); 
-			  driver.get("https://webapp4.asu.edu/catalog "); 
+			  driver.navigate().to("https://webapp4.asu.edu/catalog "); 
+			 // driver.get("https://webapp4.asu.edu/catalog "); 
 			  break;
 		  }
 		  catch (Exception e){
