@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -115,6 +117,7 @@ public class stepdefinition {
 	   driver.switchTo().frame(form_element);
 	   driver.switchTo().frame(driver.findElement(By.tagName("iframe")));*/
 	   i_get_into_inputForm();
+	   
 	   //driver.findElement(By.name("applicant.name")).sendKeys("YiWei Sun");
 	   Thread.sleep(1000);
        //////////////////////////////////////////////////////////////////////////////////////
@@ -353,7 +356,12 @@ public class stepdefinition {
     			   System.out.println(recap_e);
     			   
     		   }
+    		   /*WebDriverWait wait = new WebDriverWait(driver, 10);
+    		   
+    		   WebElement element_continue = wait.until(ExpectedConditions.elementToBeClickable(By.id("form-action-continue")));*/
     		   driver.findElement(By.id("form-action-continue")).click();
+    		   //element_continue.click();
+
     		   break;
     	   }
     	   catch(Exception e) {

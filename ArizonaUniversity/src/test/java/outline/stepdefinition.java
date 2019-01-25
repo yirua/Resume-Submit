@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver; 
-
+import org.openqa.selenium.chrome.ChromeDriver;
 import cucumber.api.java.en.Given; 
 import cucumber.api.java.en.Then; 
 import cucumber.api.java.en.When;
@@ -17,14 +17,14 @@ import cucumber.api.java.en.And;
 public class stepdefinition { 
    WebDriver driver = null; 
 
- 
+   WebDriver driver_f = null; 
 
    @cucumber.api.java.en.Given("^I have open the browser$")
    public void I_have_open_the_browser() throws Exception {
 	   System.setProperty("webdriver.gecko.driver", "res/geckodriver");
 
-	   driver = new FirefoxDriver(); 
-	   
+	   driver_f = new FirefoxDriver(); 
+	   driver = new ChromeDriver();
    }
 
    @cucumber.api.java.en.Given("^I open Arizona University website$")
@@ -32,7 +32,8 @@ public class stepdefinition {
 	  int x = 0;
 	  while (x<10){
 		  try{
-			  driver.navigate().to("https://webapp4.asu.edu/catalog "); 
+			 // driver.navigate().to("https://webapp4.asu.edu/catalog "); 
+			  driver.get("https://webapp4.asu.edu/catalog "); 
 			  break;
 		  }
 		  catch (Exception e){
